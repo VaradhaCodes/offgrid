@@ -1,0 +1,9 @@
+{
+  "id": "SNU_R2",
+  "name": "Circular Rd",
+  "geojson": "corridor_route2.geojson",
+  "anchors": {"A": [28.525945, 77.570652], "B": [28.527123, 77.577232]},
+  "overhang_m": {"A": 0, "B": 20},
+  "scenarios": {"AB": {"band_from_m": 200, "band_to_m": null}, "BA": {"band_from_m": 200, "band_to_m": null}},
+  "notes": "route 2: Shivaji Park end (A, s=0) -> Cricket Ground road -> library junction -> 2011 Street -> 120 deg left at s=464 -> Circular Road north (B, s~905, 20 m overhang); the demo take is A->B with the band from 200 m to the stop"
+}

@@ -1,0 +1,146 @@
+{
+ "version": "cnn_r100_w256_joint_deploy",
+ "source_pt": "data/speed_model/models/cnn_r100_w256_joint_deploy.pt",
+ "window": 256,
+ "rate_hz": 100,
+ "channels": [
+  "ax",
+  "ay",
+  "az",
+  "gx",
+  "gy",
+  "gz"
+ ],
+ "input_layout": "[window][channel], z-scored per channel",
+ "norm_mean": [
+  0.03390594199299812,
+  0.00139344553463161,
+  9.30145263671875,
+  0.00018533684487920254,
+  -0.006699739955365658,
+  -0.0001421715278411284
+ ],
+ "norm_std": [
+  1.0414180755615234,
+  1.3172178268432617,
+  1.5680692195892334,
+  0.14452342689037323,
+  0.06601782888174057,
+  0.19357948005199432
+ ],
+ "output": "[mu, logvar]; v = max(mu, 0); sigma = exp(0.5 * clamp(logvar, -6, 4))",
+ "dtype": "float32 little-endian",
+ "n_floats": 57090,
+ "n_params_pytorch": 57602,
+ "n_params_folded": 57090,
+ "bn_eps": 1e-05,
+ "layers": [
+  {
+   "type": "conv1d",
+   "index": 0,
+   "in_ch": 6,
+   "out_ch": 32,
+   "kernel": 7,
+   "stride": 2,
+   "pad": 3,
+   "activation": "relu",
+   "bn_folded": true,
+   "w_offset": 0,
+   "w_shape": [
+    32,
+    6,
+    7
+   ],
+   "b_offset": 1344
+  },
+  {
+   "type": "conv1d",
+   "index": 1,
+   "in_ch": 32,
+   "out_ch": 64,
+   "kernel": 5,
+   "stride": 2,
+   "pad": 2,
+   "activation": "relu",
+   "bn_folded": true,
+   "w_offset": 1376,
+   "w_shape": [
+    64,
+    32,
+    5
+   ],
+   "b_offset": 11616
+  },
+  {
+   "type": "conv1d",
+   "index": 2,
+   "in_ch": 64,
+   "out_ch": 64,
+   "kernel": 5,
+   "stride": 2,
+   "pad": 2,
+   "activation": "relu",
+   "bn_folded": true,
+   "w_offset": 11680,
+   "w_shape": [
+    64,
+    64,
+    5
+   ],
+   "b_offset": 32160
+  },
+  {
+   "type": "conv1d",
+   "index": 3,
+   "in_ch": 64,
+   "out_ch": 96,
+   "kernel": 3,
+   "stride": 2,
+   "pad": 1,
+   "activation": "relu",
+   "bn_folded": true,
+   "w_offset": 32224,
+   "w_shape": [
+    96,
+    64,
+    3
+   ],
+   "b_offset": 50656
+  },
+  {
+   "type": "dense",
+   "index": 0,
+   "in_features": 96,
+   "out_features": 64,
+   "activation": "relu",
+   "w_offset": 50752,
+   "w_shape": [
+    64,
+    96
+   ],
+   "b_offset": 56896
+  },
+  {
+   "type": "dense",
+   "index": 1,
+   "in_features": 64,
+   "out_features": 2,
+   "activation": "linear",
+   "w_offset": 56960,
+   "w_shape": [
+    2,
+    64
+   ],
+   "b_offset": 57088
+  }
+ ],
+ "weights_sha256": "1ebdeb541395954a6426833106782b3449bbc3df1414f8dd743648c16557fe4d",
+ "numpy_fold_check_max_abs_diff": 1.430511474609375e-06,
+ "fixtures": {
+  "windows": "windows_500.bin",
+  "expected": "expected_500.bin",
+  "sidecar": "windows_500.json",
+  "n": 500,
+  "tolerance_abs": 0.0001
+ }
+}

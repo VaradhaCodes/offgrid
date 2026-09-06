@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <external-files-path name="sessions" path="sessions/"/>
+    <external-files-path name="replay_out" path="replay_out/"/>
+    <external-files-path name="files" path="."/>
+</paths>

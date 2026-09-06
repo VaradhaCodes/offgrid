@@ -1,0 +1,9 @@
+{
+  "id": "SNU_R1",
+  "name": "Football-ground Rd",
+  "geojson": "corridor_route1.geojson",
+  "anchors": {"A": [28.522683, 77.57399], "B": [28.521553, 77.571598]},
+  "overhang_m": {"A": 15, "B": 15},
+  "scenarios": {"AB": {"band_from_m": 110, "band_to_m": null}, "BA": {"band_from_m": 110, "band_to_m": null}},
+  "notes": "route 1: Hostel 2B (A) -> Indoor Sports Complex junction (B), 320 m; S-bend at s~80/106/132 then an arc 168-248; A at s=15.0, B at s=334.9"
+}

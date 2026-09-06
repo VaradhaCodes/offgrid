@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Down=tube mount: the phone is taped across the top and bottom quarters of the screen,
+  so ONLY the middle 50% is visible and touchable. The three=way weight split below
+  (1 : 2 : 1) maps the middle child exactly onto the physical middle 50%; the activity
+  draws edge=to=edge so those weights are quarters of the real screen, not of an inset
+  content area. Nothing interactive may live outside @id/band.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#000000"
+    android:keepScreenOn="true">
+
+    <!-- former dead zone (taped mount); the bottle-cage mount shows the whole screen, so it is now a thin margin -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.12"
+        android:orientation="vertical"
+        android:gravity="bottom">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#1B5E20"/>
+    </LinearLayout>
+
+    <!-- ===================== usable band: middle 50% ===================== -->
+    <FrameLayout
+        android:id="@+id/band"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:padding="8dp">
+
+        <!-- ========== IDLE: pick direction + run, then START ========== -->
+        <LinearLayout
+            android:id="@+id/idlePanel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvDirLabel"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="DIRECTION:  A → B"
+                android:textColor="#9E9E9E" android:textSize="15sp"
+                android:gravity="center"/>
+
+            <LinearLayout
+                android:layout_width="match_parent" android:layout_height="82dp"
+                android:orientation="horizontal" android:layout_marginTop="2dp">
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnDirAB"
+                    android:layout_width="0dp" android:layout_weight="1"
+                    android:layout_height="match_parent" android:layout_marginEnd="6dp"
+                    android:text="● A → B" android:textSize="24sp" android:textStyle="bold"
+                    android:textColor="#000000" android:background="@drawable/dir_on"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnDirBA"
+                    android:layout_width="0dp" android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:text="B → A" android:textSize="24sp" android:textStyle="bold"
+                    android:textColor="#78909C" android:background="@drawable/dir_off"/>
+            </LinearLayout>
+
+            <!-- run number: +/= buttons, never a keyboard -->
+            <LinearLayout
+                android:layout_width="match_parent" android:layout_height="72dp"
+                android:orientation="horizontal" android:layout_marginTop="6dp">
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnRunMinus"
+                    android:layout_width="76dp" android:layout_height="match_parent"
+                    android:text="−" android:textSize="32sp" android:textStyle="bold"
+                    android:textColor="#FFFFFF" android:background="@drawable/btn_small"/>
+                <TextView
+                    android:id="@+id/tvRunNo"
+                    android:layout_width="0dp" android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:text="RUN 1" android:textSize="30sp" android:textStyle="bold"
+                    android:textColor="#FFFFFF" android:gravity="center"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnRunPlus"
+                    android:layout_width="76dp" android:layout_height="match_parent"
+                    android:text="+" android:textSize="32sp" android:textStyle="bold"
+                    android:textColor="#FFFFFF" android:background="@drawable/btn_small"/>
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnStart"
+                android:layout_width="match_parent"
+                android:layout_height="0dp" android:layout_weight="1"
+                android:minHeight="110dp"
+                android:layout_marginTop="6dp"
+                android:text="START" android:textSize="42sp" android:textStyle="bold"
+                android:textColor="#FFFFFF" android:background="@drawable/btn_start"/>
+
+            <LinearLayout
+                android:layout_width="match_parent" android:layout_height="50dp"
+                android:orientation="horizontal" android:layout_marginTop="6dp">
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnSetup"
+                    android:layout_width="0dp" android:layout_weight="1"
+                    android:layout_height="match_parent" android:layout_marginEnd="5dp"
+                    android:text="SETUP" android:textSize="14sp"
+                    android:textColor="#FFFFFF" android:background="@drawable/btn_small"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnSensors"
+                    android:layout_width="0dp" android:layout_weight="1"
+                    android:layout_height="match_parent" android:layout_marginEnd="5dp"
+                    android:text="SENSORS" android:textSize="14sp"
+                    android:textColor="#FFFFFF" android:background="@drawable/btn_small"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnSessions"
+                    android:layout_width="0dp" android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:text="DATA" android:textSize="14sp"
+                    android:textColor="#FFFFFF" android:background="@drawable/btn_small"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvPerms"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="" android:textSize="13sp" android:typeface="monospace"
+                android:gravity="center" android:textColor="#00E676"/>
+        </LinearLayout>
+
+        <!-- ========== SESSION: live stats + STOP ========== -->
+        <LinearLayout
+            android:id="@+id/ridePanel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tvState"
+                    android:layout_width="0dp" android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="RIDE" android:textSize="34sp" android:textStyle="bold"
+                    android:textColor="#00E676"/>
+                <TextView
+                    android:id="@+id/tvTimer"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="0:00" android:textSize="30sp" android:typeface="monospace"
+                    android:textColor="#9E9E9E"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvCountdown"
+                android:layout_width="match_parent" android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="" android:textSize="56sp" android:textStyle="bold"
+                android:textColor="#FFC400" android:gravity="center"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/tvStats"
+                android:layout_width="match_parent" android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="2dp"
+                android:text="" android:textSize="19sp" android:typeface="monospace"
+                android:lineSpacingExtra="1dp" android:textColor="#FFFFFF"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnStop"
+                android:layout_width="match_parent"
+                android:layout_height="122dp"
+                android:text="HOLD TO STOP" android:textSize="32sp" android:textStyle="bold"
+                android:textColor="#FFFFFF" android:background="@drawable/btn_stop"/>
+
+            <LinearLayout
+                android:layout_width="match_parent" android:layout_height="54dp"
+                android:orientation="horizontal" android:layout_marginTop="6dp">
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnNote"
+                    android:layout_width="0dp" android:layout_weight="1"
+                    android:layout_height="match_parent" android:layout_marginEnd="5dp"
+                    android:text="NOTE" android:textSize="17sp" android:textStyle="bold"
+                    android:textColor="#FFFFFF" android:background="@drawable/btn_small"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnOutage"
+                    android:layout_width="0dp" android:layout_weight="1.3"
+                    android:layout_height="match_parent"
+                    android:text="DENIAL: OFF" android:textSize="14sp" android:textStyle="bold"
+                    android:textColor="#FFFFFF" android:background="@drawable/btn_small"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ========== SETUP: the rarely=touched fields ========== -->
+        <LinearLayout
+            android:id="@+id/setupPanel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ScrollView
+                android:layout_width="match_parent" android:layout_height="0dp"
+                android:layout_weight="1" android:scrollbars="none">
+                <LinearLayout
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="ROUTE" android:textColor="#9E9E9E" android:textSize="13sp"/>
+                    <EditText android:id="@+id/etRoute"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="SNU_AJB" android:textColor="#FFFFFF" android:textSize="20sp"
+                        android:inputType="textCapCharacters" android:singleLine="true"
+                        android:importantForAutofill="no"/>
+
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="RIDER" android:textColor="#9E9E9E" android:textSize="13sp"/>
+                    <EditText android:id="@+id/etRider"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="rider_1" android:textColor="#FFFFFF" android:textSize="20sp"
+                        android:singleLine="true" android:importantForAutofill="no"/>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnPurpose"
+                        android:layout_width="match_parent" android:layout_height="60dp"
+                        android:layout_marginTop="8dp"
+                        android:text="PURPOSE: pilot" android:textSize="18sp"
+                        android:textColor="#FFFFFF" android:background="@drawable/btn_small"/>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnVariation"
+                        android:layout_width="match_parent" android:layout_height="60dp"
+                        android:layout_marginTop="6dp"
+                        android:text="VARIATION: normal" android:textSize="18sp"
+                        android:textColor="#FFFFFF" android:background="@drawable/btn_small"/>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnPerms"
+                        android:layout_width="match_parent" android:layout_height="60dp"
+                        android:layout_marginTop="6dp"
+                        android:text="FIX PERMISSIONS" android:textSize="16sp"
+                        android:textColor="#FFFFFF" android:background="@drawable/btn_small"/>
+                </LinearLayout>
+            </ScrollView>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnSetupDone"
+                android:layout_width="match_parent" android:layout_height="76dp"
+                android:layout_marginTop="6dp"
+                android:text="DONE" android:textSize="26sp" android:textStyle="bold"
+                android:textColor="#FFFFFF" android:background="@drawable/btn_start"/>
+        </LinearLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.12"
+        android:orientation="vertical">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#1B5E20"/>
+    </LinearLayout>
+</LinearLayout>
