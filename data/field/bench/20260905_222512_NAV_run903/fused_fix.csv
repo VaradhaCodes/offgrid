@@ -1,0 +1,5 @@
+t_ns,wall_ms,lat,lon,alt,acc_h,acc_v,speed,has_speed,speed_acc,bearing,has_bearing,bearing_acc,provider,elapsed_unc_ns,is_mock,n_sats_used
+97366158344884,1788627312540,28.5282767,77.5750752,176.40000915527344,100.0,89.9039,NaN,false,NaN,NaN,false,NaN,fused,NaN,false,0
+97396259719144,1788627342642,28.5282767,77.5750752,176.40000915527344,100.0,100.0,NaN,false,NaN,NaN,false,NaN,fused,NaN,false,0
+97426263830851,1788627372646,28.5282767,77.5750752,176.40000915527344,100.0,100.0,NaN,false,NaN,NaN,false,NaN,fused,NaN,false,0
+97456264667975,1788627402647,28.5282767,77.5750752,176.40000915527344,100.0,100.0,NaN,false,NaN,NaN,false,NaN,fused,NaN,false,0

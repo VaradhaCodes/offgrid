@@ -1,0 +1,5 @@
+cut,variant,n,mean_med,mean_worst,n_under3,rms_med,rms_worst,drift_med,drift_worst,drift_under3,max_med,max_worst,worst_run,brg_mean_med,brg_mean_worst,brg_under3
+c10,kfc_loose,10,28.07,75.95,3,56.14,115.85,82.48,141.95,3,96.81,179.54,9,27.59,75.75,3
+c30,kfc_loose,10,5.59,26.3,2,6.54,30.29,8.83,51.08,1,15.54,59.08,12,5.06,26.19,1
+c60,kfc_loose,10,2.17,4.91,8,3.5,5.8,3.62,9.46,3,9.04,12.59,10,2.24,4.42,8
+turn,kfc_loose,10,2.02,4.17,7,3.08,5.98,0.63,9.2,6,8.2,13.33,2,1.5,5.27,7

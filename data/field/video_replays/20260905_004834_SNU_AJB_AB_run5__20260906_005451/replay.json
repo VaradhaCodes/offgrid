@@ -1,0 +1,22 @@
+{
+  "session": "20260905_004834_SNU_AJB_AB_run5",
+  "speed": 1,
+  "model": "litert-2.2.0-cpu-xnnpack-1thread",
+  "error": null,
+  "tick_ms_mean": 0.5764326004728145,
+  "tick_ms_max": 2.711094,
+  "rows": 1269,
+  "outages": [
+    {
+      "t_start": 47.784017377,
+      "t_end": 86.783784341,
+      "distance_m": 140.70479893175775,
+      "duration_s": 38.999766964,
+      "end_error_m": 5.084879502695674,
+      "max_error_m": 5.286149643888567,
+      "recovery_step_m": 0.9937402702278636,
+      "sim": true,
+      "armed": true
+    }
+  ]
+}

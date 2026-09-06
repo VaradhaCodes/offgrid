@@ -1,0 +1,57 @@
+{
+ "train": "20260904_234839_SNU_AJB_BA_run3",
+ "test": "20260904_234641_SNU_AJB_BA_run2",
+ "cut_time_s": 26.9,
+ "outage_seconds": 60.7,
+ "outage_distance_m": 171.8,
+ "proxy_speed_mae": 1.724,
+ "proxy_speed_mae_moving": 2.533,
+ "heading_err_mean_deg": 0.8,
+ "imu_accel": {
+  "endpoint_m": 744.4,
+  "rmse_m": 340.0,
+  "max_m": 744.4,
+  "drift_pct": 433.2,
+  "speed_mae": 12.398
+ },
+ "last_speed": {
+  "endpoint_m": 6.9,
+  "rmse_m": 3.8,
+  "max_m": 6.9,
+  "drift_pct": 4.0,
+  "speed_mae": 0.302
+ },
+ "ml": {
+  "endpoint_m": 136.5,
+  "rmse_m": 89.8,
+  "max_m": 136.9,
+  "drift_pct": 79.5,
+  "speed_mae": 2.464
+ },
+ "top_features": [
+  [
+   "log_rms_tot",
+   1.21
+  ],
+  [
+   "band_25_49",
+   0.8
+  ],
+  [
+   "band_5_12",
+   0.78
+  ],
+  [
+   "rms_tot",
+   0.67
+  ],
+  [
+   "pk_pow",
+   0.63
+  ],
+  [
+   "rms_y",
+   0.56
+  ]
+ ]
+}

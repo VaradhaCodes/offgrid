@@ -1,0 +1,65 @@
+{
+ "cfg": "cnn_r100_w256_r2deploy",
+ "model": "cnn",
+ "win": 256,
+ "rate": 100,
+ "width": 32,
+ "params": 57602,
+ "norm_mean": [
+  0.013303258456289768,
+  0.00349517073482275,
+  9.801485061645508,
+  -0.00038526064599864185,
+  -0.0037372244987636805,
+  0.00024943932658061385
+ ],
+ "norm_std": [
+  1.0778027772903442,
+  1.355124592781067,
+  1.4603831768035889,
+  0.14364294707775116,
+  0.06716860085725784,
+  0.18730895221233368
+ ],
+ "input_shape": [
+  1,
+  256,
+  6
+ ],
+ "output": "[mu, logvar]",
+ "onnx_max_abs_diff": 1.430511474609375e-06,
+ "onnx_bytes": 230450,
+ "onnx_mac_ms_per_window_1thread": 0.062,
+ "onnx_ops": [
+  "Conv",
+  "Gemm",
+  "ReduceMean",
+  "Relu",
+  "Transpose"
+ ],
+ "keras_max_abs_diff": 1.9073486328125e-06,
+ "tflite_bytes": 239688,
+ "tflite_max_abs_diff": 1.430511474609375e-06,
+ "tflite_mac_ms_per_window_1thread": 0.06,
+ "tflite_ops": [
+  "CONV_2D(T#23,",
+  "CONV_2D(T#27,",
+  "CONV_2D(T#31,",
+  "CONV_2D(T#35,",
+  "EXPAND_DIMS(T#22,",
+  "EXPAND_DIMS(T#26,",
+  "EXPAND_DIMS(T#30,",
+  "EXPAND_DIMS(T#34,",
+  "FULLY_CONNECTED(T#38,",
+  "FULLY_CONNECTED(T#39,",
+  "MEAN(T#37,",
+  "PAD(T#0,",
+  "PAD(T#25,",
+  "PAD(T#29,",
+  "PAD(T#33,",
+  "RESHAPE(T#24,",
+  "RESHAPE(T#28,",
+  "RESHAPE(T#32,",
+  "RESHAPE(T#36,"
+ ]
+}

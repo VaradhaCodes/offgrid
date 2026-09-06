@@ -1,0 +1,10 @@
+{
+  "session": "20260905_033817_SNU_AJB_AB_run4",
+  "speed": 4,
+  "model": "litert-2.2.0-cpu-xnnpack-1thread",
+  "error": null,
+  "tick_ms_mean": 0.9326394679358723,
+  "tick_ms_max": 14.533802,
+  "rows": 2994,
+  "outages": []
+}

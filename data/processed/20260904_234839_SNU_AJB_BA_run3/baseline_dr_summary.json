@@ -1,0 +1,66 @@
+{
+ "session": "20260904_234839_SNU_AJB_BA_run3",
+ "ride_seconds": 69.7,
+ "gravity_mag": 9.868685326892486,
+ "gyro_bias_rad_s": [
+  -2.655091575091588e-05,
+  -0.002073136080586083,
+  0.005062015384615271
+ ],
+ "yaw_align_deg": 106.6,
+ "heading_err_end_deg": 11.7,
+ "results": [
+  {
+   "variant": "A_pure_INS",
+   "endpoint_err_m": 2888.7,
+   "rmse_m": 1105.2,
+   "max_err_m": 2888.7,
+   "err_at_10s": 4.8,
+   "err_at_30s": 235.8,
+   "err_at_60s": 1868.9,
+   "gnss_path_m": 196.6,
+   "variant_path_m": 2970.1,
+   "path_len_err_pct": 1410.7,
+   "endpoint_drift_pct_of_dist": 1469.3
+  },
+  {
+   "variant": "B_INS_fwd_only_NHC",
+   "endpoint_err_m": 784.7,
+   "rmse_m": 445.6,
+   "max_err_m": 785.9,
+   "err_at_10s": 4.9,
+   "err_at_30s": 143.8,
+   "err_at_60s": 783.8,
+   "gnss_path_m": 196.6,
+   "variant_path_m": 1142.9,
+   "path_len_err_pct": 481.3,
+   "endpoint_drift_pct_of_dist": 399.1
+  },
+  {
+   "variant": "C_gyro_heading_last_speed_held",
+   "endpoint_err_m": 26.2,
+   "rmse_m": 11.2,
+   "max_err_m": 26.2,
+   "err_at_10s": 2.8,
+   "err_at_30s": 8.2,
+   "err_at_60s": 16.0,
+   "gnss_path_m": 196.6,
+   "variant_path_m": 198.8,
+   "path_len_err_pct": 1.1,
+   "endpoint_drift_pct_of_dist": 13.3
+  },
+  {
+   "variant": "D_gyro_heading_true_speed",
+   "endpoint_err_m": 15.2,
+   "rmse_m": 9.5,
+   "max_err_m": 15.2,
+   "err_at_10s": 2.7,
+   "err_at_30s": 7.2,
+   "err_at_60s": 14.7,
+   "gnss_path_m": 196.6,
+   "variant_path_m": 194.5,
+   "path_len_err_pct": -1.1,
+   "endpoint_drift_pct_of_dist": 7.7
+  }
+ ]
+}

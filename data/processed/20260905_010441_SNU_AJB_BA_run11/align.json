@@ -1,0 +1,170 @@
+{
+ "session": "20260905_010441_SNU_AJB_BA_run11",
+ "run": 11,
+ "dir": "BA",
+ "rider": "rider_1",
+ "g_rest": [
+  -0.6491,
+  8.9616,
+  4.0886
+ ],
+ "g_ride": [
+  -0.0562,
+  8.9823,
+  4.1061
+ ],
+ "g_mag": 9.8716,
+ "bias_rad_s": [
+  -0.000287,
+  0.000497,
+  -0.001356
+ ],
+ "gate_frac": 0.417,
+ "tilt_stand_vs_ride_deg": 3.44,
+ "max_block_angle_deg": 1.93,
+ "moved_at_s": null,
+ "blocks": [
+  [
+   10.0,
+   0.0
+  ],
+  [
+   20.0,
+   1.35
+  ],
+  [
+   30.0,
+   1.93
+  ],
+  [
+   40.0,
+   0.53
+  ],
+  [
+   50.0,
+   1.77
+  ]
+ ],
+ "stand": {
+  "psi_init_deg": 35.46,
+  "mean_force_mps2": 0.771,
+  "psi_sway_deg": 90.25,
+  "sway_ratio": 8.2,
+  "psi_lean_deg": 97.0,
+  "lean_best_corr": 0.912,
+  "psi_fit_deg": 91.34,
+  "psi_deg": 90.25,
+  "fit_scale": 1.036,
+  "fit_rms_mps": 0.11,
+  "fit_lag_s": 0.4,
+  "fit_n": 22,
+  "fit_nseg": 3,
+  "fit_leak_mps2": [
+   0.616,
+   0.016
+  ],
+  "yaw_lag_s": 0.1,
+  "yaw_corr": 0.9845,
+  "yaw_slope": 1.0054,
+  "yaw_rms_dps": 2.08,
+  "fwd_start_mps2": 0.445,
+  "lat_start_mps2": -0.63,
+  "fwd_corr": 0.948,
+  "fwd_slope": 1.044,
+  "lean_corr": 0.907,
+  "mean_fx_straight": -0.053,
+  "mean_fy_straight": -0.576,
+  "euler_pitch_roll_yaw_deg": [
+   3.77,
+   65.48,
+   -87.82
+  ],
+  "R_pb": [
+   [
+    0.037901,
+    0.417049,
+    -0.908094
+   ],
+   [
+    -0.997116,
+    -0.044013,
+    -0.06183
+   ],
+   [
+    -0.065754,
+    0.907818,
+    0.414178
+   ]
+  ]
+ },
+ "ride": {
+  "psi_init_deg": 83.1,
+  "mean_force_mps2": 0.431,
+  "psi_sway_deg": 89.62,
+  "sway_ratio": 8.3,
+  "psi_lean_deg": 85.0,
+  "lean_best_corr": 0.911,
+  "psi_fit_deg": 89.2,
+  "psi_deg": 89.62,
+  "fit_scale": 1.036,
+  "fit_rms_mps": 0.109,
+  "fit_lag_s": 0.4,
+  "fit_n": 22,
+  "fit_nseg": 3,
+  "fit_leak_mps2": [
+   0.023,
+   -0.003
+  ],
+  "yaw_lag_s": 0.1,
+  "yaw_corr": 0.9847,
+  "yaw_slope": 1.0061,
+  "yaw_rms_dps": 2.06,
+  "fwd_start_mps2": 0.428,
+  "lat_start_mps2": -0.049,
+  "fwd_corr": 0.949,
+  "fwd_slope": 1.046,
+  "lean_corr": 0.908,
+  "mean_fx_straight": -0.066,
+  "mean_fy_straight": 0.022,
+  "euler_pitch_roll_yaw_deg": [
+   0.33,
+   65.43,
+   -89.41
+  ],
+  "R_pb": [
+   [
+    0.010332,
+    0.415787,
+    -0.909403
+   ],
+   [
+    -0.99993,
+    -0.000882,
+    -0.011763
+   ],
+   [
+    -0.005693,
+    0.909462,
+    0.415749
+   ]
+  ]
+ },
+ "R_pb": [
+  [
+   0.010332,
+   0.415787,
+   -0.909403
+  ],
+  [
+   -0.99993,
+   -0.000882,
+   -0.011763
+  ],
+  [
+   -0.005693,
+   0.909462,
+   0.415749
+  ]
+ ],
+ "psi_deg": 89.62
+}

@@ -1,0 +1,6 @@
+t_s,type,text
+0.124,PHASE,"STAND"
+15.124,ALIGN,"stand g=9.808 pitch=-0.49 roll=0.87 bias_dps=[-0.004 -0.007 0.029] quiet=true qfrac=1.00 rot=0.08deg"
+15.124,PHASE,"RIDE"
+148.951,PHASE,"STOP_STAND"
+163.951,PHASE,"DONE"

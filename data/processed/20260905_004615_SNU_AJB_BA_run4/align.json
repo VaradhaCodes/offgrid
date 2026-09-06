@@ -1,0 +1,178 @@
+{
+ "session": "20260905_004615_SNU_AJB_BA_run4",
+ "run": 4,
+ "dir": "BA",
+ "rider": "rider_1",
+ "g_rest": [
+  0.0664,
+  8.8651,
+  4.3471
+ ],
+ "g_ride": [
+  0.065,
+  8.838,
+  4.3908
+ ],
+ "g_mag": 9.8737,
+ "bias_rad_s": [
+  -0.000211,
+  -4.5e-05,
+  -0.001105
+ ],
+ "gate_frac": 0.65,
+ "tilt_stand_vs_ride_deg": 0.3,
+ "max_block_angle_deg": 0.76,
+ "moved_at_s": null,
+ "blocks": [
+  [
+   0.0,
+   0.0
+  ],
+  [
+   10.0,
+   0.41
+  ],
+  [
+   20.0,
+   0.76
+  ],
+  [
+   30.0,
+   0.63
+  ],
+  [
+   40.0,
+   0.49
+  ],
+  [
+   60.0,
+   0.11
+  ],
+  [
+   70.0,
+   0.31
+  ]
+ ],
+ "stand": {
+  "psi_init_deg": 84.68,
+  "mean_force_mps2": 0.521,
+  "psi_sway_deg": 91.89,
+  "sway_ratio": 5.3,
+  "psi_lean_deg": 79.0,
+  "lean_best_corr": 0.866,
+  "psi_fit_deg": 94.11,
+  "psi_deg": 91.89,
+  "fit_scale": 1.007,
+  "fit_rms_mps": 0.186,
+  "fit_lag_s": 0.30000000000000004,
+  "fit_n": 53,
+  "fit_nseg": 6,
+  "fit_leak_mps2": [
+   0.009,
+   -0.022
+  ],
+  "yaw_lag_s": 0.5,
+  "yaw_corr": 0.9846,
+  "yaw_slope": 0.9522,
+  "yaw_rms_dps": 1.44,
+  "fwd_start_mps2": 0.517,
+  "lat_start_mps2": -0.066,
+  "fwd_corr": 0.81,
+  "fwd_slope": 0.88,
+  "lean_corr": 0.86,
+  "mean_fx_straight": -0.052,
+  "mean_fy_straight": 0.022,
+  "euler_pitch_roll_yaw_deg": [
+   -0.39,
+   63.88,
+   -92.13
+  ],
+  "R_pb": [
+   [
+    -0.037246,
+    0.440193,
+    -0.89713
+   ],
+   [
+    -0.999284,
+    -0.010366,
+    0.036401
+   ],
+   [
+    0.006723,
+    0.897843,
+    0.440264
+   ]
+  ]
+ },
+ "ride": {
+  "psi_init_deg": 85.0,
+  "mean_force_mps2": 0.573,
+  "psi_sway_deg": 91.9,
+  "sway_ratio": 5.3,
+  "psi_lean_deg": 78.0,
+  "lean_best_corr": 0.862,
+  "psi_fit_deg": 94.11,
+  "psi_deg": 91.9,
+  "fit_scale": 1.007,
+  "fit_rms_mps": 0.186,
+  "fit_lag_s": 0.30000000000000004,
+  "fit_n": 53,
+  "fit_nseg": 6,
+  "fit_leak_mps2": [
+   0.011,
+   0.029
+  ],
+  "yaw_lag_s": 0.6000000000000001,
+  "yaw_corr": 0.9847,
+  "yaw_slope": 0.9506,
+  "yaw_rms_dps": 1.44,
+  "fwd_start_mps2": 0.568,
+  "lat_start_mps2": -0.069,
+  "fwd_corr": 0.784,
+  "fwd_slope": 0.854,
+  "lean_corr": 0.855,
+  "mean_fx_straight": -0.002,
+  "mean_fy_straight": 0.019,
+  "euler_pitch_roll_yaw_deg": [
+   -0.38,
+   63.58,
+   -92.14
+  ],
+  "R_pb": [
+   [
+    -0.037296,
+    0.44483,
+    -0.894838
+   ],
+   [
+    -0.999283,
+    -0.010703,
+    0.036329
+   ],
+   [
+    0.006583,
+    0.895551,
+    0.44491
+   ]
+  ]
+ },
+ "R_pb": [
+  [
+   -0.037296,
+   0.44483,
+   -0.894838
+  ],
+  [
+   -0.999283,
+   -0.010703,
+   0.036329
+  ],
+  [
+   0.006583,
+   0.895551,
+   0.44491
+  ]
+ ],
+ "psi_deg": 91.9
+}
