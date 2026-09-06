@@ -4,8 +4,8 @@ Caption wording is theirs, unchanged - only the missing paragraph breaks are res
 import base64, io, os, re, shutil, zipfile
 from PIL import Image
 
-SRC  = "/Users/lokkeshayyappan/Downloads/OFFGRID_technical_approach.pptx"
-OUT  = "/Users/lokkeshayyappan/HACKATHON/docs/diagrams/OFFGRID_technical_approach_final.pptx"
+SRC  = os.environ.get("SRC", "docs/diagrams/OFFGRID_technical_approach.pptx")
+OUT  = os.environ.get("OUT", "docs/diagrams/OFFGRID_technical_approach_final.pptx")
 WORK = "/private/tmp/claude-501/-Users-lokkeshayyappan-HACKATHON/a87e2c47-0afe-4db5-88a2-6ce786ef3eca/scratchpad/fin2"
 LOGOS_SRC = "/private/tmp/claude-501/-Users-lokkeshayyappan-HACKATHON/a87e2c47-0afe-4db5-88a2-6ce786ef3eca/scratchpad/logos/ppt/media"
 

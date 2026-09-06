@@ -1,8 +1,8 @@
 # R7 — Map data for an offline map of Shiv Nadar University, Greater Noida
 
 Workstream R7. All fetches performed **2026-09-05** (UTC times given per item) from
-`/Users/lokkeshayyappan/HACKATHON` on macOS 25.2 (Darwin), Python 3.12.4 in
-`/Users/lokkeshayyappan/HACKATHON/.venv`.
+the repository root on macOS 25.2 (Darwin), Python 3.12.4 in
+`.venv`.
 
 **Area of interest**: bbox `28.5133, 77.5639, 28.5335, 77.5823` (S, W, N, E).
 Centre `28.524416, 77.573818`. Physical extent **1 800 m E–W × 2 249 m N–S = 4.05 km²**
@@ -16,7 +16,7 @@ fetched and must not be quoted in the judged document.
 
 ## 0. Files produced
 
-All under `/Users/lokkeshayyappan/HACKATHON/data/map/`.
+All under `data/map/`.
 
 | File | Bytes | gzip | Contents |
 |---|---:|---:|---|

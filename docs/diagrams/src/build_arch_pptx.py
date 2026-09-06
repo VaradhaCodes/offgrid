@@ -3,8 +3,8 @@ four columns (image + title + a plain-English caption), the two missing visuals 
 and the two supplied photos re-placed on the same grid."""
 import os, re, shutil, zipfile
 
-SRC = "/Users/lokkeshayyappan/Downloads/architecture.pptx"
-OUT = "/Users/lokkeshayyappan/HACKATHON/docs/diagrams/OFFGRID_technical_approach.pptx"
+SRC = os.environ.get("SRC", "architecture.pptx")
+OUT = os.environ.get("OUT", "docs/diagrams/OFFGRID_technical_approach.pptx")
 WORK = "/private/tmp/claude-501/-Users-lokkeshayyappan-HACKATHON/a87e2c47-0afe-4db5-88a2-6ce786ef3eca/scratchpad/build"
 IMG = os.path.dirname(os.path.abspath(__file__)) + "/img"
 

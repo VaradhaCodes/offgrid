@@ -1,5 +1,5 @@
 import json, os, csv, math, sys, re
-BASE="/Users/lokkeshayyappan/HACKATHON/data/route1/sessions"
+BASE="data/route1/sessions"
 dirs=sorted([d for d in os.listdir(BASE) if os.path.isdir(os.path.join(BASE,d))],
             key=lambda s:int(re.search(r'run(\d+)$',s).group(1)))
 

@@ -3,8 +3,8 @@ darken the caption text so it reads on a projector, add the training line.
 Nothing else is touched - their logo, their logo strip, their wording."""
 import os, re, shutil, zipfile
 
-SRC  = "/Users/lokkeshayyappan/Downloads/final architecture.pptx"
-OUT  = "/Users/lokkeshayyappan/HACKATHON/docs/diagrams/OFFGRID_architecture_organised.pptx"
+SRC  = os.environ.get("SRC", "final architecture.pptx")
+OUT  = os.environ.get("OUT", "docs/diagrams/OFFGRID_technical_approach_slide.pptx")
 WORK = "/private/tmp/claude-501/-Users-lokkeshayyappan-HACKATHON/a87e2c47-0afe-4db5-88a2-6ce786ef3eca/scratchpad/fa2"
 E = lambda v: int(round(v * 9525))
 

@@ -6,7 +6,7 @@ Goal: a debug APK for a Samsung Galaxy S23 Ultra (One UI 8.5 / Android 16) that 
 - Android SDK: `~/Library/Android/sdk` with platforms android-36 and android-37, build-tools 35.0.0 / 36.0.0 / 37.0.0, platform-tools (adb 37.0.1), cmdline-tools/latest (sdkmanager). No Android Studio. No `gradle` on PATH.
 - JDK: Homebrew OpenJDK 21 at `/opt/homebrew/opt/openjdk@21` (keg-only, not on PATH). Use `export JAVA_HOME=/opt/homebrew/opt/openjdk@21` and `export ANDROID_HOME=$HOME/Library/Android/sdk` and `export PATH=$ANDROID_HOME/platform-tools:$JAVA_HOME/bin:$PATH`.
 - Gradle: no wrapper jar exists yet. Either `brew install gradle` then `gradle wrapper --gradle-version 8.11.1` inside the project, or download `https://services.gradle.org/distributions/gradle-8.11.1-bin.zip`, unzip to a scratch dir, and run its `bin/gradle wrapper`.
-- Versions that work together: Gradle 8.11.1, AGP 8.10.x (compileSdk 36) or AGP 8.6+ (compileSdk 35), Kotlin 2.0.x, JDK 21. Use `local.properties` with `sdk.dir=/Users/lokkeshayyappan/Library/Android/sdk`. If `platforms;android-35` is needed, `sdkmanager "platforms;android-35"`; otherwise compileSdk 36 with the installed android-36.
+- Versions that work together: Gradle 8.11.1, AGP 8.10.x (compileSdk 36) or AGP 8.6+ (compileSdk 35), Kotlin 2.0.x, JDK 21. Use `local.properties` with `sdk.dir=$HOME/Library/Android/sdk`. If `platforms;android-35` is needed, `sdkmanager "platforms;android-35"`; otherwise compileSdk 36 with the installed android-36.
 - Phone: enable Developer options (tap Build number 7×), USB debugging ON, plug in, accept the RSA prompt. `adb devices` must show the phone. Wireless debugging (pair with code) is the backup.
 
 ## Project shape (Kotlin, XML Views, no Compose)
