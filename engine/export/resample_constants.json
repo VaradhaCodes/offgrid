@@ -1,0 +1,22 @@
+{
+ "description": "causal 4th-order Butterworth low-pass, fc 40 Hz, fs 420 Hz, second-order sections [b0 b1 b2 a0 a1 a2], direct form II transposed; then linear interpolation to the 10 ms grid",
+ "sos": [
+  [
+   0.004084090581862278,
+   0.008168181163724557,
+   0.004084090581862278,
+   1.0,
+   -1.0868417615022878,
+   0.3154088083097217
+  ],
+  [
+   1.0,
+   2.0,
+   1.0,
+   1.0,
+   -1.3594224322488757,
+   0.6453142535876253
+  ]
+ ],
+ "group_delay_ms_at_5hz": 0.0
+}
