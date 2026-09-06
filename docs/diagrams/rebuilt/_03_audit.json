@@ -1,0 +1,67 @@
+{
+  "fontLoaded": true,
+  "words": 100,
+  "overflows": [],
+  "panels": [
+    {
+      "bottom": 640,
+      "last": 591.59375
+    },
+    {
+      "bottom": 640,
+      "last": 606.828125
+    }
+  ],
+  "bullets": [
+    {
+      "text": "Runs on the phone240 KB model with 10 Hz position updates.",
+      "lines": 4
+    },
+    {
+      "text": "Corridor replay evidence10/10 held-out route-2 rides below 10% drift.",
+      "lines": 4
+    },
+    {
+      "text": "Works offlineLocal inference and bundled road maps.",
+      "lines": 4
+    },
+    {
+      "text": "Broader vehicle coverageTrain across more vehicles and phone models.",
+      "lines": 4
+    },
+    {
+      "text": "Longer GPS outagesRefine calibration and road constraints.",
+      "lines": 4
+    },
+    {
+      "text": "Navigation continuityPosition tracking through GPS blackouts.",
+      "lines": 4
+    },
+    {
+      "text": "Delivery reliabilityFewer missed turns and avoidable delays.",
+      "lines": 4
+    },
+    {
+      "text": "Emergency responsePosition awareness where GPS is blocked.",
+      "lines": 4
+    },
+    {
+      "text": "Lower adoption costExisting phones, without vehicle wiring.",
+      "lines": 4
+    },
+    {
+      "text": "More efficient tripsFewer detours could cut fuel use and emissions.",
+      "lines": 4
+    }
+  ],
+  "bottomPadding": [
+    {
+      "panel": "panel feasibility",
+      "pixels": 48
+    },
+    {
+      "panel": "panel impact",
+      "pixels": 33
+    }
+  ]
+}

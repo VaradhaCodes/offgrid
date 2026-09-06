@@ -1,0 +1,61 @@
+{
+  "fontLoaded": true,
+  "overflows": [],
+  "bullets": [
+    {
+      "text": "GPS loss interrupts navigation in tunnels and dense streets.",
+      "lines": 2
+    },
+    {
+      "text": "Unaided phone sensors accumulate position error.",
+      "lines": 2
+    },
+    {
+      "text": "No vehicle connection or wheel sensors.",
+      "lines": 2
+    },
+    {
+      "text": "Learned uncertainty controls correction strength.",
+      "lines": 2
+    },
+    {
+      "text": "Models run locally on the phone.",
+      "lines": 1
+    },
+    {
+      "text": "Auto-calibration aligns the phone to the vehicle.",
+      "lines": 1
+    },
+    {
+      "text": "AI estimates speed from phone motion.",
+      "lines": 1
+    },
+    {
+      "text": "Fusion combines speed, heading and offline roads.",
+      "lines": 1
+    },
+    {
+      "text": "Stop detection limits drift while stationary.",
+      "lines": 1
+    },
+    {
+      "text": "GPS corrections blend back when signals return.",
+      "lines": 1
+    }
+  ],
+  "solutionFooterGap": 56,
+  "bottomPadding": [
+    {
+      "panel": "problem",
+      "pixels": 39
+    },
+    {
+      "panel": "difference",
+      "pixels": 24
+    },
+    {
+      "panel": "solution",
+      "pixels": 142
+    }
+  ]
+}

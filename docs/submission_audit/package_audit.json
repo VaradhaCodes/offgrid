@@ -1,0 +1,224 @@
+[
+  {
+    "slide": 1,
+    "text": [
+      "PROBLEM STATEMENT ID :",
+      " ",
+      "25043",
+      "PROBLEM STATEMENT TITLE :",
+      "AI-ML based Intelligent Dead Reckoning System ",
+      "for seamless navigation",
+      "THEME \u2013",
+      " ",
+      "SMART VEHICLES",
+      "PS CATEGORY - ",
+      "SOFTWARE",
+      "TEAM ID - ",
+      "26168",
+      "TEAM NAME \u2013 ",
+      "OFFGRID",
+      "SMART INDIA HACKATHON 2026"
+    ],
+    "relations": [
+      {
+        "Id": "rId3",
+        "Type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+        "Target": "../media/image2.png"
+      },
+      {
+        "Id": "rId2",
+        "Type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+        "Target": "../media/image1.png"
+      },
+      {
+        "Id": "rId1",
+        "Type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/slideLayout",
+        "Target": "../slideLayouts/slideLayout1.xml"
+      },
+      {
+        "Id": "rId4",
+        "Type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+        "Target": "../media/image3.png"
+      }
+    ]
+  },
+  {
+    "slide": 2,
+    "text": [],
+    "relations": [
+      {
+        "Id": "rId3",
+        "Type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+        "Target": "../media/image4.png"
+      },
+      {
+        "Id": "rId2",
+        "Type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/notesSlide",
+        "Target": "../notesSlides/notesSlide1.xml"
+      },
+      {
+        "Id": "rId1",
+        "Type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/slideLayout",
+        "Target": "../slideLayouts/slideLayout12.xml"
+      },
+      {
+        "Id": "rId4",
+        "Type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+        "Target": "../media/image5.png"
+      }
+    ]
+  },
+  {
+    "slide": 3,
+    "text": [
+      "OFF-GRID\u2019S ARCHITECTURE",
+      "@SIH Idea submission |Off-Grid : AI Based Intelligent Dead Reckoning System Architecture"
+    ],
+    "relations": [
+      {
+        "Id": "rId3",
+        "Type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+        "Target": "../media/image6.png"
+      },
+      {
+        "Id": "rId2",
+        "Type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/notesSlide",
+        "Target": "../notesSlides/notesSlide2.xml"
+      },
+      {
+        "Id": "rId1",
+        "Type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/slideLayout",
+        "Target": "../slideLayouts/slideLayout2.xml"
+      },
+      {
+        "Id": "rId6",
+        "Type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+        "Target": "../media/image8.png"
+      },
+      {
+        "Id": "rId5",
+        "Type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+        "Target": "../media/image7.png"
+      },
+      {
+        "Id": "rId4",
+        "Type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+        "Target": "../media/image3.png"
+      }
+    ]
+  },
+  {
+    "slide": 4,
+    "text": [
+      "OFF-GRID : OUR WORKING PROTOTYPE",
+      "@SIH Idea submission |Off-Grid : AI Based Intelligent Dead Reckoning System Prototype",
+      "WATCH OUR WORKING PROTOTYPE!"
+    ],
+    "relations": [
+      {
+        "Id": "rId3",
+        "Type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+        "Target": "../media/image9.png"
+      },
+      {
+        "Id": "rId7",
+        "Type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink",
+        "Target": "https://youtu.be/7wxq_wKqr98",
+        "TargetMode": "External"
+      },
+      {
+        "Id": "rId2",
+        "Type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/notesSlide",
+        "Target": "../notesSlides/notesSlide3.xml"
+      },
+      {
+        "Id": "rId1",
+        "Type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/slideLayout",
+        "Target": "../slideLayouts/slideLayout2.xml"
+      },
+      {
+        "Id": "rId6",
+        "Type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+        "Target": "../media/image10.png"
+      },
+      {
+        "Id": "rId5",
+        "Type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+        "Target": "../media/image3.png"
+      },
+      {
+        "Id": "rId4",
+        "Type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+        "Target": "../media/image6.png"
+      }
+    ]
+  },
+  {
+    "slide": 5,
+    "text": [
+      "VIABILITY AND IMPACT ANALYSIS",
+      "@SIH Idea submission |Off-Grid : Viability and Impact Analysis"
+    ],
+    "relations": [
+      {
+        "Id": "rId3",
+        "Type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+        "Target": "../media/image6.png"
+      },
+      {
+        "Id": "rId2",
+        "Type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/notesSlide",
+        "Target": "../notesSlides/notesSlide4.xml"
+      },
+      {
+        "Id": "rId1",
+        "Type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/slideLayout",
+        "Target": "../slideLayouts/slideLayout2.xml"
+      },
+      {
+        "Id": "rId5",
+        "Type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+        "Target": "../media/image11.png"
+      },
+      {
+        "Id": "rId4",
+        "Type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+        "Target": "../media/image3.png"
+      }
+    ]
+  },
+  {
+    "slide": 6,
+    "text": [
+      "RESEARCH AND REFERENCES",
+      "@SIH Idea submission |Off-Grid : AI Based Intelligent Dead Reckoning System Research and References "
+    ],
+    "relations": [
+      {
+        "Id": "rId3",
+        "Type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+        "Target": "../media/image6.png"
+      },
+      {
+        "Id": "rId2",
+        "Type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/notesSlide",
+        "Target": "../notesSlides/notesSlide5.xml"
+      },
+      {
+        "Id": "rId1",
+        "Type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/slideLayout",
+        "Target": "../slideLayouts/slideLayout2.xml"
+      },
+      {
+        "Id": "rId5",
+        "Type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+        "Target": "../media/image12.png"
+      },
+      {
+        "Id": "rId4",
+        "Type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+        "Target": "../media/image3.png"
+      }
+    ]
+  }
+]

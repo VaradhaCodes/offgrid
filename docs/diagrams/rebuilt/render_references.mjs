@@ -1,0 +1,17 @@
+import {createRequire} from 'node:module';
+import fs from 'node:fs';
+import path from 'node:path';
+const require=createRequire(import.meta.url);
+const {chromium}=require('playwright');
+const out=path.dirname(new URL(import.meta.url).pathname);
+const browser=await chromium.launch({executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',headless:true});
+const page=await browser.newPage({viewport:{width:1600,height:660},deviceScaleFactor:2.4});
+await page.goto('file://'+path.join(out,'04_research_references.html'));
+await page.evaluate(()=>document.fonts.ready);
+const qa=await page.evaluate(()=>({fontLoaded:document.fonts.check('25px Barlow'),words:document.querySelector('.content').innerText.trim().split(/\s+/).length,overflows:[...document.querySelectorAll('.panel,.entry,.entries')].filter(e=>e.scrollHeight>e.clientHeight+1||e.scrollWidth>e.clientWidth+1).map(e=>e.innerText),bounds:[...document.querySelectorAll('.panel')].map(p=>({bottom:p.getBoundingClientRect().bottom,lastText:[...p.querySelectorAll('.role')].at(-1).getBoundingClientRect().bottom})),overlaps:[...document.querySelectorAll('.entry')].flatMap(e=>{const next=e.nextElementSibling;return next&&e.querySelector('.role').getBoundingClientRect().bottom>next.getBoundingClientRect().top?[e.innerText]:[]})}));
+await page.screenshot({path:path.join(out,'04_research_references.png')});
+await page.setViewportSize({width:1280,height:528});
+await page.screenshot({path:path.join(out,'_04_research_references_review.png'),scale:'css'});
+await browser.close();
+fs.writeFileSync(path.join(out,'_04_audit.json'),JSON.stringify(qa,null,2));
+console.log(JSON.stringify(qa));

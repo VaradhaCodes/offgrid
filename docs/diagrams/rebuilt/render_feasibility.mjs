@@ -1,0 +1,17 @@
+import {createRequire} from 'node:module';
+import fs from 'node:fs';
+import path from 'node:path';
+const require=createRequire(import.meta.url);
+const {chromium}=require('playwright');
+const out=path.dirname(new URL(import.meta.url).pathname);
+const browser=await chromium.launch({executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',headless:true});
+const page=await browser.newPage({viewport:{width:1600,height:660},deviceScaleFactor:2.4});
+await page.goto('file://'+path.join(out,'03_feasibility_impact.html'));
+await page.evaluate(()=>document.fonts.ready);
+const qa=await page.evaluate(()=>({fontLoaded:document.fonts.check('31px Barlow'),words:document.querySelector('.content').innerText.trim().split(/\s+/).length,overflows:[...document.querySelectorAll('.panel,li,.intro')].filter(e=>e.scrollWidth>e.clientWidth+1||e.scrollHeight>e.clientHeight+1).map(e=>e.className||e.textContent),panels:[...document.querySelectorAll('.panel')].map(p=>({bottom:p.getBoundingClientRect().bottom,last:[...p.querySelectorAll('li')].at(-1).getBoundingClientRect().bottom})),bullets:[...document.querySelectorAll('li')].map(e=>({text:e.textContent,lines:Math.round(e.getBoundingClientRect().height/parseFloat(getComputedStyle(e).lineHeight))})),bottomPadding:[...document.querySelectorAll('.panel')].map(p=>({panel:p.className,pixels:Math.round(p.getBoundingClientRect().bottom-[...p.querySelectorAll('ul')].at(-1).getBoundingClientRect().bottom)}))}));
+await page.screenshot({path:path.join(out,'03_feasibility_impact.png')});
+await page.setViewportSize({width:1280,height:528});
+await page.screenshot({path:path.join(out,'_03_feasibility_impact_review.png'),scale:'css'});
+await browser.close();
+fs.writeFileSync(path.join(out,'_03_audit.json'),JSON.stringify(qa,null,2));
+console.log(JSON.stringify(qa));

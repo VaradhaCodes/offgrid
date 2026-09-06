@@ -1,0 +1,164 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Proposed architecture</title>
+<style>
+@font-face{font-family:'Barlow';font-weight:400;src:url('fonts/barlow_400.woff2') format('woff2')}@font-face{font-family:'Barlow';font-weight:500;src:url('fonts/barlow_500.woff2') format('woff2')}@font-face{font-family:'Barlow';font-weight:600;src:url('fonts/barlow_600.woff2') format('woff2')}@font-face{font-family:'Barlow';font-weight:700;src:url('fonts/barlow_700.woff2') format('woff2')}@font-face{font-family:'Barlow Semi Condensed';font-weight:600;src:url('fonts/barlowsemicondensed_600.woff2') format('woff2')}
+html,body{margin:0;background:#fff}
+body{width:1600px;height:708px;overflow:hidden}
+svg{display:block}
+</style></head><body><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1600" height="708" viewBox="0 0 1600 708" role="img">
+<defs>
+<marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#14171A"/></marker>
+<marker id="arrg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2E9E6B"/></marker>
+<marker id="arra" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#D99A3A"/></marker>
+<marker id="arrr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#D64545"/></marker>
+
+</defs>
+<rect width="1600" height="708" fill="#ffffff"/>
+<text x="40" y="36" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="600" fill="#5B6470" text-anchor="start" letter-spacing="1.4">SENSORS</text>
+<text x="320" y="36" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="600" fill="#5B6470" text-anchor="start" letter-spacing="1.4">FRONT END  ·  IMU RATE</text>
+<text x="620" y="36" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="600" fill="#5B6470" text-anchor="start" letter-spacing="1.4">AIDING  ·  10 Hz</text>
+<text x="930" y="36" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="600" fill="#5B6470" text-anchor="start" letter-spacing="1.4">FUSION CORE</text>
+<text x="1320" y="36" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="600" fill="#5B6470" text-anchor="start" letter-spacing="1.4">OUTPUT  ·  DEPLOYMENT</text>
+<rect x="40" y="58" width="240" height="112" rx="6" fill="#fff" stroke="#C4CAD1" stroke-width="1.25" opacity="1"/>
+<text x="54" y="88.0" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="600" fill="#14171A" text-anchor="start">Accelerometer + gyro</text>
+<text x="54" y="112.8" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="400" fill="#5B6470" text-anchor="start">200 Hz, uncalibrated</text>
+<text x="54" y="133.8" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="400" fill="#5B6470" text-anchor="start">phone MEMS, or an external</text>
+<text x="54" y="154.8" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="400" fill="#5B6470" text-anchor="start">FOG IMU through the edge config</text>
+<rect x="40" y="184" width="240" height="84" rx="6" fill="#fff" stroke="#C4CAD1" stroke-width="1.25" opacity="1"/>
+<text x="54" y="214.0" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="600" fill="#14171A" text-anchor="start">Magnetometer · barometer</text>
+<text x="54" y="238.8" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="400" fill="#5B6470" text-anchor="start">gated aids only: field check,</text>
+<text x="54" y="259.8" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="400" fill="#5B6470" text-anchor="start">level change in a car park</text>
+<text x="40" y="308" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="600" fill="#14171A" text-anchor="start">No OBD-II · no CAN bus · no wheel ticks</text>
+<text x="40" y="328" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="500" fill="#5B6470" text-anchor="start">no link to the vehicle of any kind</text>
+<rect x="40" y="500" width="240" height="116" rx="6" fill="#E8F6EE" stroke="#2E9E6B" stroke-width="1.25" opacity="1"/>
+<text x="54" y="530.0" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="600" fill="#14171A" text-anchor="start">GNSS receiver</text>
+<text x="54" y="553.25" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="400" fill="#5B6470" text-anchor="start">fix, C/N0, satellites used</text>
+<text x="54" y="573.25" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="400" fill="#5B6470" text-anchor="start">raw Doppler velocity</text>
+<text x="54" y="593.25" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="400" fill="#5B6470" text-anchor="start">per-band AGC — reported</text>
+<text x="54" y="613.25" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="400" fill="#5B6470" text-anchor="start">even when there is no fix</text>
+<rect x="320" y="58" width="260" height="84" rx="6" fill="#fff" stroke="#C4CAD1" stroke-width="1.25" opacity="1"/>
+<text x="334" y="88.0" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="600" fill="#14171A" text-anchor="start">Clock discipline</text>
+<text x="334" y="112.8" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="400" fill="#5B6470" text-anchor="start">one monotonic timeline</text>
+<text x="334" y="133.8" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="400" fill="#5B6470" text-anchor="start">GNSS–IMU offset kept as a state</text>
+<rect x="320" y="154" width="260" height="84" rx="6" fill="#FFF0D8" stroke="#D99A3A" stroke-width="1.25" opacity="1"/>
+<text x="334" y="184.0" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="600" fill="#14171A" text-anchor="start">Gyro denoiser</text>
+<rect x="542" y="166" width="26" height="18" rx="4" fill="#FFF0D8" stroke="#D99A3A" stroke-width="1" opacity="1"/>
+<text x="555.0" y="179" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#8A5300" text-anchor="middle" letter-spacing="0.5">AI</text>
+<text x="334" y="208.8" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="400" fill="#5B6470" text-anchor="start">dilated causal CNN, &lt; 50 k params</text>
+<text x="334" y="229.8" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="400" fill="#5B6470" text-anchor="start">loss on orientation increments</text>
+<rect x="320" y="250" width="260" height="106" rx="6" fill="#fff" stroke="#C4CAD1" stroke-width="1.25" opacity="1"/>
+<text x="334" y="280.0" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="600" fill="#14171A" text-anchor="start">Alignment engine</text>
+<text x="334" y="304.8" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="400" fill="#5B6470" text-anchor="start">gravity levels roll and pitch at t = 0</text>
+<text x="334" y="325.8" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="400" fill="#5B6470" text-anchor="start">closed-form GNSS-aided yaw</text>
+<text x="334" y="346.8" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="400" fill="#5B6470" text-anchor="start">mount rotation carried as a state</text>
+<rect x="320" y="368" width="260" height="106" rx="6" fill="#FFF0D8" stroke="#D99A3A" stroke-width="1.25" opacity="1"/>
+<text x="334" y="398.0" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="600" fill="#14171A" text-anchor="start">Motion context gate</text>
+<rect x="542" y="380" width="26" height="18" rx="4" fill="#FFF0D8" stroke="#D99A3A" stroke-width="1" opacity="1"/>
+<text x="555.0" y="393" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#8A5300" text-anchor="middle" letter-spacing="0.5">AI</text>
+<text x="334" y="422.8" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="400" fill="#5B6470" text-anchor="start">stationary · idling · moving · shock</text>
+<text x="334" y="443.8" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="400" fill="#5B6470" text-anchor="start">engine idle line at 12.5 / 25 Hz</text>
+<text x="334" y="464.8" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="400" fill="#5B6470" text-anchor="start">shocks inflate noise, never smoothed</text>
+<rect x="620" y="58" width="270" height="130" rx="6" fill="#FFF0D8" stroke="#D99A3A" stroke-width="1.25" opacity="1"/>
+<text x="634" y="88.0" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="600" fill="#14171A" text-anchor="start">Speed + heading head</text>
+<rect x="852" y="70" width="26" height="18" rx="4" fill="#FFF0D8" stroke="#D99A3A" stroke-width="1" opacity="1"/>
+<text x="865.0" y="83" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#8A5300" text-anchor="middle" letter-spacing="0.5">AI</text>
+<text x="634" y="112.8" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="400" fill="#5B6470" text-anchor="start">causal TCN, 1–2 s of body-frame IMU</text>
+<text x="634" y="133.8" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="400" fill="#5B6470" text-anchor="start">+ attitude embedding + band power</text>
+<text x="634" y="154.8" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="400" fill="#5B6470" text-anchor="start">→  forward speed  v ± σᵥ</text>
+<text x="634" y="175.8" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="400" fill="#5B6470" text-anchor="start">→  yaw-rate bias  δψ ± σψ</text>
+<rect x="620" y="200" width="270" height="106" rx="6" fill="#FFF0D8" stroke="#D99A3A" stroke-width="1.25" opacity="1"/>
+<text x="634" y="230.0" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="600" fill="#14171A" text-anchor="start">Noise adapter</text>
+<rect x="852" y="212" width="26" height="18" rx="4" fill="#FFF0D8" stroke="#D99A3A" stroke-width="1" opacity="1"/>
+<text x="865.0" y="225" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#8A5300" text-anchor="middle" letter-spacing="0.5">AI</text>
+<text x="634" y="254.8" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="400" fill="#5B6470" text-anchor="start">→  σQ, σR, σNHC for the filter</text>
+<text x="634" y="275.8" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="400" fill="#5B6470" text-anchor="start">σ = σ₀ · exp(clip(net)) — bounded, so a</text>
+<text x="634" y="296.8" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="400" fill="#5B6470" text-anchor="start">failed net is a stable, mistuned filter</text>
+<rect x="620" y="318" width="270" height="106" rx="6" fill="#fff" stroke="#C4CAD1" stroke-width="1.25" opacity="1"/>
+<text x="634" y="348.0" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="600" fill="#14171A" text-anchor="start">Kinematic constraints</text>
+<text x="634" y="372.8" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="400" fill="#5B6470" text-anchor="start">NHC: lateral = up = 0, with lever arm</text>
+<text x="634" y="393.8" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="400" fill="#5B6470" text-anchor="start">ZUPT · ZIHR · ZARU when stopped</text>
+<text x="634" y="414.8" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="400" fill="#5B6470" text-anchor="start">switched by the motion context</text>
+<rect x="320" y="500" width="570" height="116" rx="6" fill="#E8F6EE" stroke="#2E9E6B" stroke-width="1.25" opacity="1"/>
+<text x="334" y="530.0" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="600" fill="#14171A" text-anchor="start">GNSS quality monitor</text>
+<text x="334" y="552.475" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="14.5" font-weight="400" fill="#5B6470" text-anchor="start">NIS gate · C/N0 · per-band AGC — the AGC drop comes about a second before the fix is lost</text>
+<text x="334" y="571.475" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="14.5" font-weight="400" fill="#5B6470" text-anchor="start">trust falls → σR → ∞ : dead reckoning is a weight change, not a mode switch</text>
+<text x="334" y="590.475" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="14.5" font-weight="400" fill="#5B6470" text-anchor="start">flags jamming (AGC and C/N0 both drop) and spoofing (AGC drops, C/N0 rises)</text>
+<rect x="930" y="58" width="350" height="406" rx="8" fill="#fff" stroke="#14171A" stroke-width="2.25" opacity="1"/>
+<text x="946" y="88" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="700" fill="#14171A" text-anchor="start">Error-state filter</text>
+<text x="946" y="110" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="500" fill="#5B6470" text-anchor="start">idr-core · C++17 · runs at IMU rate · never re-initialised</text>
+<line x1="946" y1="122" x2="1264" y2="122" stroke="#C4CAD1" stroke-width="1" opacity="1"/>
+<text x="946" y="146" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="400" fill="#5B6470" text-anchor="start">Strapdown mechanization → 21 error states + mount,</text>
+<text x="946" y="165" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="400" fill="#5B6470" text-anchor="start">invariant error, Joseph-form covariance</text>
+<text x="946" y="200" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="17" font-weight="600" fill="#14171A" text-anchor="start" xml:space="preserve">δp  δv  φ   ·   b<tspan font-size="10.54" dy="4.760000000000001">g</tspan><tspan dy="-4.760000000000001"> </tspan>  b<tspan font-size="10.54" dy="4.760000000000001">a</tspan><tspan dy="-4.760000000000001"> </tspan>  s<tspan font-size="10.54" dy="4.760000000000001">g</tspan><tspan dy="-4.760000000000001"> </tspan>  s<tspan font-size="10.54" dy="4.760000000000001">a</tspan><tspan dy="-4.760000000000001"> </tspan>   ·   θ<tspan font-size="10.54" dy="4.760000000000001">mount</tspan><tspan dy="-4.760000000000001"> </tspan>  ℓ   ·   τ<tspan font-size="10.54" dy="4.760000000000001">clk</tspan><tspan dy="-4.760000000000001"> </tspan></text>
+<text x="946" y="222" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="500" fill="#5B6470" text-anchor="start">position · velocity · attitude · biases · scale factors · mount · lever arm · clock</text>
+<text x="946" y="258" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="600" fill="#14171A" text-anchor="start">Measurement updates, each with its own covariance</text>
+<circle cx="931" cy="279" r="4.5" fill="#fff" stroke="#14171A" stroke-width="2"/>
+<text x="948" y="284" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="14.5" font-weight="500" fill="#14171A" text-anchor="start">speed  v ± σᵥ   and   heading  δψ ± σψ</text>
+<circle cx="931" cy="307" r="4.5" fill="#fff" stroke="#14171A" stroke-width="2"/>
+<text x="948" y="312" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="14.5" font-weight="500" fill="#14171A" text-anchor="start">process and measurement noise  Q, R</text>
+<circle cx="931" cy="335" r="4.5" fill="#fff" stroke="#14171A" stroke-width="2"/>
+<text x="948" y="340" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="14.5" font-weight="500" fill="#14171A" text-anchor="start">NHC · ZUPT · ZIHR · ZARU</text>
+<circle cx="931" cy="363" r="4.5" fill="#fff" stroke="#14171A" stroke-width="2"/>
+<text x="948" y="368" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="14.5" font-weight="500" fill="#14171A" text-anchor="start">GNSS position + Doppler, weighted by σR</text>
+<circle cx="931" cy="391" r="4.5" fill="#fff" stroke="#14171A" stroke-width="2"/>
+<text x="948" y="396" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="14.5" font-weight="500" fill="#14171A" text-anchor="start">road centreline offset + bearing, weight ∝ drift</text>
+<line x1="946" y1="414" x2="1264" y2="414" stroke="#C4CAD1" stroke-width="1" opacity="1"/>
+<text x="946" y="436" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="400" fill="#5B6470" text-anchor="start">Reacquisition: fixed-lag smoother over the outage,</text>
+<text x="946" y="454" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="400" fill="#5B6470" text-anchor="start">10–30 s, run once when GNSS returns — no jump</text>
+<rect x="930" y="500" width="350" height="116" rx="6" fill="#fff" stroke="#C4CAD1" stroke-width="1.25" opacity="1"/>
+<text x="944" y="530.0" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="600" fill="#14171A" text-anchor="start">Offline road map</text>
+<text x="944" y="553.25" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="400" fill="#5B6470" text-anchor="start">OpenStreetMap, compiled: 2–10 MB per city</text>
+<text x="944" y="573.25" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="400" fill="#5B6470" text-anchor="start">HMM / Viterbi match in a 50 m window</text>
+<text x="944" y="593.25" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="400" fill="#5B6470" text-anchor="start">explicit off-road hypothesis, so a</text>
+<text x="944" y="613.25" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="400" fill="#5B6470" text-anchor="start">wrong road is always escapable</text>
+<rect x="1320" y="58" width="240" height="150" rx="6" fill="#fff" stroke="#C4CAD1" stroke-width="1.25" opacity="1"/>
+<text x="1334" y="88.0" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="600" fill="#14171A" text-anchor="start">10 Hz pose + covariance</text>
+<text x="1334" y="111.25" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="400" fill="#5B6470" text-anchor="start">map icon, always moving</text>
+<text x="1334" y="131.25" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="400" fill="#5B6470" text-anchor="start">95 % error ellipse</text>
+<text x="1334" y="151.25" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="400" fill="#5B6470" text-anchor="start">“Dead reckoning · GNSS lost</text>
+<text x="1334" y="171.25" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="400" fill="#5B6470" text-anchor="start">  0:42 · ± 38 m”</text>
+<text x="1334" y="191.25" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="400" fill="#5B6470" text-anchor="start">log + replay of the same binary</text>
+<rect x="1320" y="224" width="240" height="240" rx="6" fill="#fff" stroke="#C4CAD1" stroke-width="1.25" opacity="1"/>
+<text x="1334" y="254.0" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="600" fill="#14171A" text-anchor="start">One core, two targets</text>
+<text x="1334" y="277.25" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="600" fill="#14171A" text-anchor="start">Smartphone</text>
+<text x="1334" y="297.25" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="400" fill="#5B6470" text-anchor="start">Android AAR under a Kotlin app</text>
+<text x="1334" y="317.25" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="400" fill="#5B6470" text-anchor="start">phone IMU 200 Hz → 10 Hz out</text>
+<text x="1334" y="337.25" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="400" fill="#5B6470" text-anchor="start">Earth-rate terms off</text>
+<text x="1334" y="357.25" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="400" fill="#5B6470" text-anchor="start"></text>
+<text x="1334" y="377.25" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="600" fill="#14171A" text-anchor="start">Edge engine</text>
+<text x="1334" y="397.25" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="400" fill="#5B6470" text-anchor="start">Linux library, Python bindings</text>
+<text x="1334" y="417.25" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="400" fill="#5B6470" text-anchor="start">FOG IMU, filter at 200 Hz</text>
+<text x="1334" y="437.25" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="400" fill="#5B6470" text-anchor="start">learned heads decimated</text>
+<text x="1334" y="457.25" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="400" fill="#5B6470" text-anchor="start">Earth-rate terms on</text>
+<rect x="1320" y="500" width="240" height="116" rx="6" fill="#fff" stroke="#C4CAD1" stroke-width="1.25" opacity="1"/>
+<text x="1334" y="530.0" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="600" fill="#14171A" text-anchor="start">Models</text>
+<text x="1334" y="553.25" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="400" fill="#5B6470" text-anchor="start">PyTorch → ExecuTorch, int8</text>
+<text x="1334" y="573.25" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="400" fill="#5B6470" text-anchor="start">XNNPACK CPU · causal TCN</text>
+<text x="1334" y="593.25" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="400" fill="#5B6470" text-anchor="start">no recurrence · &lt; 5 MB in total</text>
+<text x="1334" y="613.25" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="400" fill="#5B6470" text-anchor="start">≈ 11 ms of work per 100 ms tick</text>
+<line x1="280" y1="114" x2="317" y2="114" stroke="#14171A" stroke-width="1.5" marker-end="url(#arr)" opacity="1"/>
+<line x1="280" y1="226" x2="317" y2="226" stroke="#14171A" stroke-width="1.5" marker-end="url(#arr)" opacity="1"/>
+<path d="M580,196.0 L600,196.0 L600,123.0 L617,123.0" fill="none" stroke="#14171A" stroke-width="1.5" marker-end="url(#arr)" opacity="1" stroke-linejoin="round"/>
+<line x1="580" y1="283.0" x2="617" y2="283.0" stroke="#14171A" stroke-width="1.5" marker-end="url(#arr)" opacity="1"/>
+<path d="M580,421.0 L600,421.0 L600,371.0 L617,371.0" fill="none" stroke="#14171A" stroke-width="1.5" marker-end="url(#arr)" opacity="1" stroke-linejoin="round"/>
+<path d="M520,474 L520,484 L927,484" fill="none" stroke="#14171A" stroke-width="1.5" marker-end="url(#arr)" opacity="1" stroke-linejoin="round"/>
+<text x="620" y="477" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="500" fill="#5B6470" text-anchor="start">aligned IMU stream, 200 Hz  →  mechanization</text>
+<path d="M890,123.0 L912,123.0 L912,279 L924,279" fill="none" stroke="#D99A3A" stroke-width="1.75" marker-end="url(#arra)" opacity="1" stroke-linejoin="round"/>
+<path d="M890,253.0 L912,253.0 L912,307 L924,307" fill="none" stroke="#D99A3A" stroke-width="1.75" marker-end="url(#arra)" opacity="1" stroke-linejoin="round"/>
+<path d="M890,371.0 L896,371.0 L896,335 L924,335" fill="none" stroke="#14171A" stroke-width="1.5" marker-end="url(#arr)" opacity="1" stroke-linejoin="round"/>
+<line x1="280" y1="558.0" x2="317" y2="558.0" stroke="#2E9E6B" stroke-width="1.75" marker-end="url(#arrg)" opacity="1"/>
+<path d="M890,558.0 L908,558.0 L908,363 L924,363" fill="none" stroke="#ffffff" stroke-width="7.75" opacity="1" stroke-linejoin="round"/>
+<path d="M890,558.0 L908,558.0 L908,363 L924,363" fill="none" stroke="#2E9E6B" stroke-width="1.75" marker-end="url(#arrg)" opacity="1" stroke-linejoin="round"/>
+<path d="M1040,500 L1040,467" fill="none" stroke="#14171A" stroke-width="1.5" marker-end="url(#arr)" opacity="1" stroke-linejoin="round"/>
+<text x="1050" y="488" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="500" fill="#5B6470" text-anchor="start">matched segment + confidence</text>
+<path d="M1246,464 L1246,497" fill="none" stroke="#14171A" stroke-width="1" stroke-dasharray="3 3" marker-end="url(#arr)" opacity="1" stroke-linejoin="round"/>
+<text x="1254" y="488" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="500" fill="#5B6470" text-anchor="start">pose, covariance</text>
+<line x1="1280" y1="118" x2="1317" y2="118" stroke="#14171A" stroke-width="1.75" marker-end="url(#arr)" opacity="1"/>
+<rect x="40" y="640" width="18" height="14" rx="3" fill="#FFF0D8" stroke="#D99A3A" stroke-width="1" opacity="1"/>
+<text x="66" y="652" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="500" fill="#5B6470" text-anchor="start">learned module — four of them; every output is bounded, so the filter stays stable if one fails</text>
+<rect x="680" y="640" width="18" height="14" rx="3" fill="#E8F6EE" stroke="#2E9E6B" stroke-width="1" opacity="1"/>
+<text x="706" y="652" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="500" fill="#5B6470" text-anchor="start">GNSS path — a measurement whose weight goes to zero, never a mode</text>
+<circle cx="1170" cy="647" r="4.5" fill="#fff" stroke="#14171A" stroke-width="2"/>
+<text x="1184" y="652" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="500" fill="#5B6470" text-anchor="start">measurement port into the one continuous filter</text>
+<text x="40" y="688" font-family="'Barlow', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="400" fill="#5B6470" text-anchor="start">Proposed architecture · one continuous error-state filter at IMU rate; learning attaches at four bounded points; GNSS and the road map enter as weighted measurements, so a blackout changes weights, not modes.</text>
+</svg></body></html>

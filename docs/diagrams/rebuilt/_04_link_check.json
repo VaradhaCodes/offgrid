@@ -1,0 +1,197 @@
+[
+  {
+    "entry": 1,
+    "label": "Paper",
+    "url": "https://arxiv.org/abs/2510.17604",
+    "status": 200,
+    "destination": "https://arxiv.org/abs/2510.17604"
+  },
+  {
+    "entry": 2,
+    "label": "Paper",
+    "url": "https://ira.lib.polyu.edu.hk/handle/10397/99370",
+    "status": 200,
+    "destination": "https://ira.lib.polyu.edu.hk/handle/10397/99370"
+  },
+  {
+    "entry": 3,
+    "label": "Paper",
+    "url": "https://arxiv.org/abs/2505.18490",
+    "status": 200,
+    "destination": "https://arxiv.org/abs/2505.18490"
+  },
+  {
+    "entry": 4,
+    "label": "Paper",
+    "url": "https://arxiv.org/abs/2109.03091",
+    "status": 200,
+    "destination": "https://arxiv.org/abs/2109.03091"
+  },
+  {
+    "entry": 5,
+    "label": "Paper",
+    "url": "https://arxiv.org/abs/1904.06064",
+    "status": 200,
+    "destination": "https://arxiv.org/abs/1904.06064"
+  },
+  {
+    "entry": 5,
+    "label": "Code",
+    "url": "https://github.com/mbrossar/ai-imu-dr",
+    "status": 200,
+    "destination": "https://github.com/mbrossar/ai-imu-dr"
+  },
+  {
+    "entry": 6,
+    "label": "Paper",
+    "url": "https://arxiv.org/abs/2007.01867",
+    "status": 200,
+    "destination": "https://arxiv.org/abs/2007.01867"
+  },
+  {
+    "entry": 6,
+    "label": "Code",
+    "url": "https://github.com/CathIAS/TLIO",
+    "status": 200,
+    "destination": "https://github.com/CathIAS/TLIO"
+  },
+  {
+    "entry": 7,
+    "label": "Paper",
+    "url": "https://arxiv.org/abs/2005.01701",
+    "status": 200,
+    "destination": "https://arxiv.org/abs/2005.01701"
+  },
+  {
+    "entry": 7,
+    "label": "Dataset",
+    "url": "https://github.com/onyekpeu/IO-VNBD",
+    "status": 200,
+    "destination": "https://github.com/onyekpeu/IO-VNBD"
+  },
+  {
+    "entry": 8,
+    "label": "Repository",
+    "url": "https://github.com/i2Nav-WHU/KF-GINS",
+    "status": 200,
+    "destination": "https://github.com/i2Nav-WHU/KF-GINS"
+  },
+  {
+    "entry": 9,
+    "label": "Repository",
+    "url": "https://github.com/i2Nav-WHU/Wheel-INS",
+    "status": 200,
+    "destination": "https://github.com/i2Nav-WHU/Wheel-INS"
+  },
+  {
+    "entry": 10,
+    "label": "Paper",
+    "url": "https://arxiv.org/abs/1910.00529",
+    "status": 200,
+    "destination": "https://arxiv.org/abs/1910.00529"
+  },
+  {
+    "entry": 11,
+    "label": "Paper",
+    "url": "https://www.microsoft.com/en-us/research/publication/hidden-markov-map-matching-noise-sparseness/",
+    "status": "HTTP Error 403: Forbidden"
+  },
+  {
+    "entry": 12,
+    "label": "Paper",
+    "url": "https://arxiv.org/abs/2606.19687",
+    "status": 200,
+    "destination": "https://arxiv.org/abs/2606.19687"
+  },
+  {
+    "entry": 13,
+    "label": "PyTorch",
+    "url": "https://docs.pytorch.org/docs/stable/",
+    "status": 200,
+    "destination": "https://docs.pytorch.org/docs/stable/"
+  },
+  {
+    "entry": 13,
+    "label": "TensorFlow/Keras",
+    "url": "https://www.tensorflow.org/guide/keras",
+    "status": 200,
+    "destination": "https://www.tensorflow.org/guide/keras"
+  },
+  {
+    "entry": 14,
+    "label": "Android sensors",
+    "url": "https://developer.android.com/develop/sensors-and-location/sensors/sensors_overview",
+    "status": 200,
+    "destination": "https://developer.android.com/develop/sensors-and-location/sensors/sensors_overview"
+  },
+  {
+    "entry": 14,
+    "label": "GNSS",
+    "url": "https://developer.android.com/develop/sensors-and-location/sensors/gnss",
+    "status": 200,
+    "destination": "https://developer.android.com/develop/sensors-and-location/sensors/gnss"
+  },
+  {
+    "entry": 14,
+    "label": "Kotlin",
+    "url": "https://kotlinlang.org/docs/home.html",
+    "status": 200,
+    "destination": "https://kotlinlang.org/docs/home.html"
+  },
+  {
+    "entry": 14,
+    "label": "Compose",
+    "url": "https://developer.android.com/compose",
+    "status": 200,
+    "destination": "https://developer.android.com/compose"
+  },
+  {
+    "entry": 15,
+    "label": "Documentation",
+    "url": "https://developers.google.com/edge/litert",
+    "status": 200,
+    "destination": "https://developers.google.com/edge/litert"
+  },
+  {
+    "entry": 16,
+    "label": "Repository",
+    "url": "https://github.com/maplibre/maplibre-native",
+    "status": 200,
+    "destination": "https://github.com/maplibre/maplibre-native"
+  },
+  {
+    "entry": 17,
+    "label": "OpenStreetMap",
+    "url": "https://www.openstreetmap.org/copyright",
+    "status": 200,
+    "destination": "https://www.openstreetmap.org/copyright"
+  },
+  {
+    "entry": 17,
+    "label": "Protomaps",
+    "url": "https://docs.protomaps.com/basemaps/downloads",
+    "status": 200,
+    "destination": "https://docs.protomaps.com/basemaps/downloads"
+  },
+  {
+    "entry": 17,
+    "label": "PMTiles",
+    "url": "https://docs.protomaps.com/pmtiles/",
+    "status": 200,
+    "destination": "https://docs.protomaps.com/pmtiles/"
+  },
+  {
+    "entry": 18,
+    "label": "Microsoft footprints",
+    "url": "https://github.com/microsoft/GlobalMLBuildingFootprints",
+    "status": 200,
+    "destination": "https://github.com/microsoft/GlobalMLBuildingFootprints"
+  },
+  {
+    "entry": 18,
+    "label": "Esri World Imagery",
+    "url": "https://www.arcgis.com/home/item.html?id=10df2279f9684e4a9f6a7f08febac2a9",
+    "status": 200,
+    "destination": "https://www.arcgis.com/home/item.html?id=10df2279f9684e4a9f6a7f08febac2a9"
+  }
+]

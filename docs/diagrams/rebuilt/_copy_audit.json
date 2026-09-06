@@ -1,0 +1,12 @@
+{
+  "01_architecture": {
+    "before_words": 180,
+    "after_words": 77,
+    "reduction_percent": 57
+  },
+  "02_working_prototype": {
+    "before_words": 138,
+    "after_words": 77,
+    "reduction_percent": 44
+  }
+}
