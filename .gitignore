@@ -1,0 +1,56 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Python
+.venv/
+**/__pycache__/
+**/*.py[cod]
+**/.pytest_cache/
+**/.mypy_cache/
+**/.ruff_cache/
+
+# Gradle / Android
+**/.gradle/
+**/.kotlin/
+**/build/
+**/local.properties
+*.apk
+*.aab
+*.keystore
+
+# Office lock files
+**/~$*
+
+# ---------------------------------------------------------------------------
+# Data not tracked here (see data/README.md for how to obtain or regenerate it)
+# ---------------------------------------------------------------------------
+
+# Phone-exported archives: byte-identical to the expanded folders in sessions/
+data/route1/zips/
+data/route2/zips/
+
+# Third-party dataset, cloned on demand:
+#   git clone https://github.com/onyekpeu/IO-VNBD.git data/external/IO-VNBD
+data/external/
+
+# Raw sensor streams from the 10-minute desk bench (150 MB, regenerable by
+# re-running the bench); the engine outputs and the log are kept.
+data/field/bench/*/acc*.csv
+data/field/bench/*/gyr*.csv
+data/field/bench/*/mag*.csv
+data/field/bench/*/grav.csv
+data/field/bench/*/linacc.csv
+data/field/bench/*/gamerot.csv
+data/field/bench/*/rotvec.csv
+data/field/bench/*/gnss_raw.csv
+data/field/bench/*/nmea.csv
+
+# Working copies of the deck kept outside docs/slides/
+docs/diagrams/old/
+docs/diagrams/rebuilt/previous/
+docs.zip
+
+# Decoded IMU tables (178 MB): a straight decode of the raw acc.csv + gyr.csv
+# that sit beside them. Regenerate with:  engine/decode_session.py
+data/processed/*/imu_native.csv

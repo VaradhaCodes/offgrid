@@ -1,0 +1,24 @@
+# Recorded sensor data is kept byte-for-byte as it came off the device:
+# no line-ending normalisation, no textual diffs.
+*.csv    -text -diff
+*.json   -text
+
+*.png    binary
+*.jpg    binary
+*.jpeg   binary
+*.pdf    binary
+*.pptx   binary
+*.zip    binary
+*.npz    binary
+*.pt     binary
+*.onnx   binary
+*.tflite binary
+*.bin    binary
+*.pmtiles binary
+*.ttf    binary
+*.otf    binary
+*.jar    binary
+
+# Keep data and generated docs out of the language breakdown
+data/**          linguist-generated
+docs/**          linguist-documentation
