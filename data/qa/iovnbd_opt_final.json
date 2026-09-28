@@ -1,0 +1,1 @@
+{"pred": ["gru_xbi", "gru_xbim", "gru_xbim_s1", "gru_xbim_s2"], "pf": {"n": 4000, "sig_psi": 8.0, "sig_scale": 0.03, "sig_rel": 8.0, "walk": 2.5, "lost": "free"}}

@@ -17,6 +17,7 @@ Brief: `docs/10_ENGINE_BUILD_BRIEF.md`. Every number below is from held-out runs
 | 9 | `docs/12_ENGINE_SPEC_for_kotlin.md` | v2 | Heading without bias state + stand rule, LAG_V 0.2, k off, label-lag constant, route-2 corridor, joint model section, two conformance references, v1 → v2 changelog. |
 | 4-export | `engine/export/export.py` | done | Joint model: ONNX 230 KB / TFLite 240 KB, both within 1.9e-6 of PyTorch, XNNPACK-only ops, 0.07 ms per window on the Mac; phone latency still to be measured in the APK. |
 | 10 | `engine/iovnbd.py` | done | Unchanged. |
+| 10c | `engine/iovopt/` | done, 29 Sep 2026 | IO-VNBD, all drives, leave-one-family-out, IMU only, 60 s blackouts: median drift **9.69 → 2.18 %** over 307 blackouts (21.8 m per km, 91.9 % under 10 %); 54+ km/h **7.94 → 1.98 %** (79 → 19.8 m per km). Least-squares yaw-bias heading, a learned outage speed (bidirectional GRU smoother, ensemble of 4) and an OpenStreetMap road-lock particle filter. Live (causal) engine: 3.16 % / 3.10 %. |
 | 11 | route 2 | **done** | QA → align → heading → LORO → transfer both ways → joint model → like-for-like LORO → engine and replay on route 2 → demo road = **route 2** (corridor mode 1.52 % / 5.73 % over 800 m with the route-2 corridor model against route 1's 4.31 / 7.13 over 200 m; four times the outage length through a 120° turn). Deployment: joint model everywhere, route-2 corridor model (seed-1 instance, acceptance-checked) on the demo corridor. Rider-held-out impossible (all sessions `rider_1`). |
 
 ### Targets vs achieved (held out; route 1 with the joint model by pair, route 2 with its corridor model under leave-one-run-out; engine with the v2 heading)
@@ -315,6 +316,40 @@ Pipeline (the same modules): alignment = sign/scale calibration of the yaw rate 
 
 Findings: the engine runs unchanged on an external 10 Hz IMU end to end; drift is dominated by the car speed model (a 10 Hz CAN IMU carries no vibration cue, so the model is 3–6 m/s off), and the heading from the CAN yaw rate holds 5.5° over 120 s. The online scale state does what the brief predicted for transfer: where the model has a large bias (−23 % on the motorway) k converges to 1.31 within the healthy periods and cuts the drift by 40 %; where the model bias is small it is neutral to slightly negative. Two robustness fixes came out of this track and were fed back into the bicycle engine (re-verified below): both the heading filter and the position filter now reset after five consecutive gate rejections, because a transient heading error beyond the 5σ gate had made the filters reject GNSS permanently; the heading process noise is (0.1°)²/s so the gate can reopen. Plots: `data/qa/iovnbd_Vfa02.png`, `data/qa/iovnbd_Vfa01.png`; tables `data/qa/iovnbd_Vfa0{1,2}.csv`.
 
+
+## Step 10c — IO-VNBD, every drive, pushed down (`engine/iovopt/`, 29 Sep 2026)
+
+Protocol, unchanged from step 10b (`engine/iovnbd_cv.py`): the 70 moving drives of the synchronised V set, 60 s GNSS blackouts every 300 s from t = 300 s (307 blackouts on the 28 drives long enough to have one), GNSS input = VBOX subsampled to 1 Hz, inertial input = CAN yaw rate + indicated longitudinal and lateral acceleration at 10 Hz — never the wheel speeds, indicated speed, rpm or gear. Drift = endpoint error / true distance in the blackout; every number is a median over held-out blackouts, each drive scored by models that never saw its driver family (M, S, Vf, Vta, Vtb, Vw, Y). Settings were chosen on the six non-Vf families (282 blackouts, the selection set); Vf is reported as the untouched check.
+
+What the data showed first:
+- The CAN yaw rate is quantised in 0.1 °/s steps and the accelerations in 0.009 g; the heading bias therefore wanders over minutes (a least-squares fit over the last 45 s of 1 Hz GNSS bearing beats 120–280 s windows).
+- The indicated longitudinal acceleration contains gravity on slopes (a_long = 0.9–1.0 dv/dt + 0.8–0.9 g sin(grade) on 8 drives): it is an accelerometer, not a wheel-speed derivative, so using it is not a hidden speedometer. UK road grades (sd ≈ 2 %, 0.2 m/s²) are why integrating it fails.
+- Error budget at the step-10b engine: with the true speed the drift is 3.43 % (heading only); with the true heading "keep the last GNSS speed" is already 7.4 % at 54+ km/h, i.e. heading was half the problem at highway speed.
+
+Changes, each measured on the same 307 blackouts (median drift; selection set / all / 54+ km/h):
+
+| Engine | Selection set | All 307 | 54+ km/h |
+|---|---:|---:|---:|
+| step 10b `gen_abs` (GBR speed + filter with scale state) | 9.60 % | 9.69 % | 7.94 % (79 m/km) |
+| + least-squares yaw-bias heading (`heading2.py`) | 9.11 | 9.02 | 7.54 |
+| causal GRU outage speed (`seqmodel.py`) instead of the GBR | 7.52 | 7.19 | 5.91 |
+| + the drives outside the synchronised set as training data (St4/6/7 = driver C, Vfb* = Vf campaign) | 7.06 | 6.92 | 5.82 |
+| + OpenStreetMap road lock (`roadpf.py`): **live engine** | 3.24 | 3.16 | 3.10 (31 m/km) |
+| bidirectional GRU smoother, 4-model ensemble, no map | 5.26 | 5.23 | 4.49 |
+| + road lock: **end-of-blackout estimate** | **2.22** | **2.18** | **1.98 (19.8 m/km)** |
+| reference: true speed + fitted heading, no map | 2.29 | 2.39 | 2.66 |
+| reference: true speed + road lock | 0.66 | 0.65 | 0.26 |
+| baseline: keep the last GNSS speed | 22.14 | 20.37 | 10.32 (103 m/km) |
+| baseline: add up the longitudinal acceleration (step 10b `ins`) | 23.98 | 22.89 | 12.27 (123 m/km) |
+
+Final engine (`final_eval.py`, tables `data/qa/iovnbd_opt_final*.csv`): 91.9 % of all blackouts under 10 % (step 10b: 52 %), p90 8.4 % (23.9 %); every family between 1.7 and 3.3 % (M 3.33, S 2.37, Vf 2.02, Vta 1.71, Vtb 2.02, Vw 2.42, Y 1.93); motorway blackouts (80+ km/h) 2.04 %, town (≤ 30 km/h) 2.97 %. The road lock held on 277 of 307 blackouts (27 lost, 3 with no road within 25 m: those fall back to the no-map track). Position plot: `data/qa/iovnbd_opt_final.png` — the blackout closest to the 54+ km/h median (Vta1a, t0 = 1500 s, 1.01 km at 60 km/h: 19.6 m off, keep-last-speed 159 m); tracks in `iovnbd_opt_final_plot.json`.
+
+How each piece works:
+- **Heading** (`heading2.py`): ψ(t) = θ0 + ∫ yaw − b·(t − t_cut), θ0 and b by speed-weighted least squares on the receiver's 1 Hz bearing over the last 45 s before the cut; a separate long-window scale fit did not help.
+- **Outage speed** (`seqmodel.py`, `run_seq.py`): a 2-layer GRU (128 units, causal conv front end) over 60 s before the cut + the 60 s blackout at 10 Hz; inputs = the three IMU channels, the held 1 Hz GNSS speed (before the cut: the latest fix; in the blackout: the last healthy fix), a GNSS-healthy flag and the time since the last fix; output = speed as a change from the last fix; loss = speed MSE + the distance error at 20/40/60 s relative to the distance. Trained on cuts every 3 s of every training-family drive (≈ 35 000 windows, 25 epochs; one fold takes ≈ 80 s causal / 150 s bidirectional on the RTX 5070). The bidirectional version re-estimates the whole blackout at its end from the data up to that moment (a fixed-interval smoother: it never uses anything after the scored endpoint; the live display runs the causal model). Left/right mirror augmentation (yaw and lateral acceleration flipped together) helped the bidirectional model (5.88 → 5.35 % on all blackouts, no map). Tried and dropped: the GNSS climb rate before the cut as an input (worse on the first two folds), mixing causal and bidirectional predictions (2.76 %).
+- **Road lock** (`roadpf.py`, PS capability 3): OSM drivable ways (Geofabrik county extracts) within 2.5 km of the last healthy fix — only the cut position is used — split into directed segments (one-way tags, motorways and roundabouts honoured). 4 000 particles = (segment, arc length, speed scale ~ N(1, 0.03)); each tick a particle advances by model speed × scale plus an along-track random walk (2.5 m/√s) and takes a random outgoing segment at junctions (no U-turns); every second the weights take the absolute heading likelihood (σ 8°) and the turn-timing likelihood (the road's heading change over the last 3 s against the gyro's, σ 8°); systematic resampling at ESS < N/2; output = weighted mean. If the best particles disagree with the gyro by > 35° for 6 s the lock is declared lost and the no-map track is used. Tuned on the selection set only (≈ 150 configurations; neighbouring configurations agree within about ±0.2 %, so the choice is not a lucky outlier).
+
+Honesty notes: the numbers are held out by driver family, but the settings were selected on the same 282 selection-set blackouts they are reported on (Vf, 25 blackouts, is the clean check: 2.02 %). The OSM map is today's (2026); the drives were recorded before the dataset's 2021 publication. The extra training drives come from the dataset's unsynchronised folder (the same car and sensors); St1 is a byte-identical copy of Y2 and is left out. Reproduce: `engine/iovopt/cache.py`, `cache_extra.py`, `cache_alt.py`, `osm_extract.py` (county `.osm.pbf` files in `D:\offgrid_iov\osm\gf`), `run_seq.py --extra all --bidir 1 --mirror 1 [--seed0 1|2]` and `--bidir 1` without mirror, then `final_eval.py --pred gru_xbi,gru_xbim,gru_xbim_s1,gru_xbim_s2 --tag final`, `plot_final.py --tag final`, `framings.py --tag final`. The live figure: `run_seq.py --extra all` then `final_eval.py --pred gru_x --tag live`.
 
 ## Stop rule — measured margins (R4 asked for the phone's own noise floor)
 

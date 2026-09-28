@@ -52,7 +52,9 @@ Three runs carry findings rather than exclusions: road-1 runs 12, 15 and 17 had 
 git clone https://github.com/onyekpeu/IO-VNBD.git data/external/IO-VNBD
 ```
 
-Then `.venv/bin/python engine/iovnbd.py` reproduces `qa/iovnbd_Vfa01.csv` and `qa/iovnbd_Vfa02.csv`.
+Then `.venv/bin/python engine/iovnbd.py` reproduces `qa/iovnbd_Vfa01.csv` and `qa/iovnbd_Vfa02.csv`, and `engine/iovnbd_cv.py` reproduces `qa/iovnbd_cv_m60.csv`.
+
+The car engine in `engine/iovopt/` also trains on the drives that exist only in the dataset's unsynchronised folder (St4, St6, St7, Vfb01a/c, Vfb02a/b/g; St1 is a copy of Y2 and is skipped). Those files are Git LFS objects; when the LFS quota is exhausted they download from `https://media.githubusercontent.com/media/onyekpeu/IO-VNBD/master/<path>`. The road lock reads OpenStreetMap from the Geofabrik England county extracts around the drives (West Midlands, Warwickshire, Leicestershire, Derbyshire, Nottinghamshire, Staffordshire, Worcestershire, South and West Yorkshire, Northamptonshire, Buckinghamshire, Oxfordshire, Bedfordshire and their neighbours). The caches, OSM extracts and model predictions live outside the repository (`D:\offgrid_iov`); `qa/iovnbd_opt_final*.csv` and `qa/iovnbd_opt_live*.csv` are the per-blackout results.
 
 **Decoded IMU tables** (`processed/*/imu_native.csv`, 178 MB) are a straight decode of the `acc.csv` and `gyr.csv` that sit right beside them in `route1/` and `route2/`. Regenerate the whole set with:
 

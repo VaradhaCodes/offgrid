@@ -45,6 +45,22 @@ That third row is the honest bar: dead reckoning is not a heading problem, it is
 
 On the phone, at 10 Hz, the whole thing costs **0.83 ms per tick** and the model itself **0.074 ms per inference**.
 
+### On a car: IO-VNBD, the problem statement's benchmark
+
+The same engine idea on IO-VNBD (Onyekpe et al.), using only the car's own 10 Hz IMU channels — yaw rate and longitudinal/lateral acceleration, never the wheel speeds, indicated speed, rpm or gear. GNSS is cut for 60 s every 5 minutes across every drive, and each drive is scored by models that never saw its driver family ([`engine/iovopt/`](engine/iovopt/), [step 10c](docs/11_ENGINE_RESULTS.md)).
+
+| 307 GNSS blackouts, 28 drives, held out by driver | Median drift | Drift per km at 54+ km/h | Blackouts under 10 % |
+|---|---:|---:|---:|
+| Keep the last GNSS speed | 20.4 % | 103 m | 24 % |
+| Our first engine (Sep 27) | 9.7 % | 79 m | 52 % |
+| **OFFGRID: learned outage speed + OpenStreetMap road lock** | **2.2 %** | **20 m** | **92 %** |
+
+The problem statement asks for under 100 m per km at 60 km/h. The road lock uses offline OSM around the last fix; the 2.2 % is the position at the end of each blackout, re-estimated from everything the engine has measured up to that moment. The live track during the blackout, from the causal model, is at 3.2 % (31 m per km).
+
+<p align="center">
+  <img src="data/qa/iovnbd_opt_final.png" alt="IO-VNBD drive Vta1a, 60 s GPS blackout at 60 km/h: OFFGRID 20 m off, keep-last-speed 159 m off" width="90%">
+</p>
+
 ---
 
 ## How it works
@@ -190,7 +206,7 @@ cd offgrid && git sparse-checkout set engine IDRNav IDRLogger tools docs
 - **Outages are simulated on a known corridor.** GNSS is recorded throughout and withheld from the estimator. That is the honest way to get ground truth, and it is what the numbers are; it is not the same as a genuine tunnel.
 - **Corridor mode assumes the road is known.** It is the stronger mode and the demo mode, and its assumption is fair for the deployment case the problem statement describes — tunnels, underpasses and metro sections are fixed corridors. The general 2-D mode runs without it and holds 2.8 % on road 2; the numbers for both are published.
 - **The map matcher is display-only** and was measured hurting on road 1.
-- **No car data of our own.** The external-IMU evidence is IO-VNBD, a published vehicle benchmark ([`engine/iovnbd.py`](engine/iovnbd.py)).
+- **No car data of our own.** The external-IMU evidence is IO-VNBD, a published vehicle benchmark ([`engine/iovnbd.py`](engine/iovnbd.py), [`engine/iovopt/`](engine/iovopt/)). Its settings were tuned on the six families we also report (the seventh, Vf, is the clean check at 2.0 %), and the road lock needs an offline OpenStreetMap of the area.
 
 ---
 

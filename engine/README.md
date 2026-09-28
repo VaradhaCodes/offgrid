@@ -24,6 +24,8 @@ Two runtimes, one engine. Runtime code stays in plain NumPy with fixed shapes an
 | `ml_rectify_demo.py` | The first pilot: hand features, a gradient-boosting speed proxy, the physical stop rule. The bar the CNN had to beat. |
 | `loro_cv.py` | Leave-one-run-out cross-validation with outage replay. |
 | `iovnbd.py` | The same engine on IO-VNBD, an external vehicle dataset with a non-phone IMU. |
+| `iovnbd_cv.py` | IO-VNBD on every drive, leave-one-family-out, 60 s blackouts: the protocol every car number is scored on. |
+| `iovopt/` | The car engine pushed down on that protocol: least-squares yaw-bias heading, a learned outage speed (GRU, causal and bidirectional), an OpenStreetMap road-lock particle filter, and the evaluation, plot and framing scripts. |
 
 ## Setup
 
