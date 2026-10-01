@@ -1,6 +1,6 @@
 # OFFGRID — intelligent dead reckoning for smartphones
 
-**Smart India Hackathon 2026 · Team OFFGRID (26168) · "AI-ML based Intelligent Dead Reckoning System for seamless navigation" · Theme: Smart Vehicles · Category: Software**
+**Smart India Hackathon 2026 · Team OFFGRID (Team ID 189716) · Problem Statement 26168 · "AI-ML based Intelligent Dead Reckoning System for seamless navigation" · Theme: Smart Vehicles · Category: Software**
 
 A phone that keeps navigating after the satellites go away.
 
